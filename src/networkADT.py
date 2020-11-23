@@ -24,5 +24,6 @@ class Network:
         net_dict["active_hosts"] = {}
         for device in sorted(self.active_hosts):
             pass # FIXME - Left off here
+            # Question on how to access active host's devices
 
         return json.dumps(net_dict)
