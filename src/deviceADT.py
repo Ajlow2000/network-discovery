@@ -18,12 +18,12 @@ class Device:
 
     def to_dict(self):
         device_dict = {}
-        device_dict["ip"] = self.ip
-        device_dict["hostname"] = self.hostname
-        device_dict["mac"] = self.mac
+        device_dict["ip"] = str(self.ip)
+        device_dict["hostname"] = str(self.hostname)
+        device_dict["mac"] = str(self.mac)
         device_dict["tcp_port_results"] = {}
         if self.tcp_port_results is not None:
             for key in self.tcp_port_results:
-                device_dict["tcp_port_results"][key] = self.tcp_port_results[key]
-        device_dict["time_last_updated"] = self.time_last_updated
+                device_dict["tcp_port_results"][key] = str(self.tcp_port_results[key])
+        device_dict["time_last_updated"] = str(self.time_last_updated)
         return device_dict
