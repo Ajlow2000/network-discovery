@@ -28,4 +28,4 @@ class Network:
         return net_dict
 
     def json(self):
-        return json.dumps(self.to_dict, indent=4)
+        return json.dumps(self.to_dict(), indent=4)
