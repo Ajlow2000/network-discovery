@@ -18,12 +18,14 @@ class Network:
         self.scan_info[scan_type]["time_elapsed"] = time_elapsed
         self.scan_info[scan_type]["time_completed"] = time_completed
 
-    def json(self):
+    def to_dict(self):
         net_dict = {}
-        net_dict["cidr"] = self.cidr
+        net_dict["cidr"] = str(self.cidr)
         net_dict["active_hosts"] = {}
-        for device in sorted(self.active_hosts):
-            pass # FIXME - Left off here
-            # Question on how to access active host's devices
+        for device_ip in sorted(self.active_hosts):
+            net_dict["active_hosts"][device_ip] = self.active_hosts[device_ip].to_dict()
+        net_dict["scan_info"] = self.scan_info
+        return net_dict
 
-        return json.dumps(net_dict)
+    def json(self):
+        return json.dumps(self.to_dict, indent=4)
