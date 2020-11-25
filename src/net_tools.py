@@ -38,9 +38,3 @@ def pingsweep(network: Network, STDOUT=True):
         network.log_scan("pingsweep", time_elapsed=str(ping_time), time_completed=str(ping_end))
         if STDOUT: print("Completed in " + str(ping_time))
         return network
-
-def arpscan(network: Network, STDOUT=True):
-    pass
-
-def portscan(network: Network, ports, protocol="tcp", STDOUT=True):
-    pass
